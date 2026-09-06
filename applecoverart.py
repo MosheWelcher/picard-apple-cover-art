@@ -19,7 +19,7 @@
 # GNU General Public License for more details.
 
 PLUGIN_NAME = 'Apple Music cover art'
-PLUGIN_AUTHOR = 'Moshe Welcher'
+PLUGIN_AUTHOR = 'MosheWelcher'
 PLUGIN_DESCRIPTION = (
     'Fetches front cover art from the public iTunes Search API '
     '(itunes.apple.com), with images served from mzstatic.com.<br /><br />'
@@ -31,8 +31,8 @@ PLUGIN_DESCRIPTION = (
 PLUGIN_VERSION = "1.0.0"
 PLUGIN_API_VERSIONS = ["2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6",
                        "2.7", "2.8", "2.9", "2.10", "2.11", "2.12", "2.13"]
-PLUGIN_LICENSE = "MIT"
-PLUGIN_LICENSE_URL = "https://opensource.org/licenses/MIT"
+PLUGIN_LICENSE = "GPL-2.0"
+PLUGIN_LICENSE_URL = "https://opensource.org/license/gpl-2.0"
 
 import re
 import unicodedata
