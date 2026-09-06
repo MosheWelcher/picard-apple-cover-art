@@ -6,8 +6,17 @@
 # Written for environments where coverartarchive.org / archive.org are not
 # reachable.
 #
-# Copyright (c) 2026 Moshe Welcher
-# Released under the MIT License. See LICENSE for details.
+# Copyright (C) 2026 Moshe Welcher
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
 
 PLUGIN_NAME = 'Apple Music cover art'
 PLUGIN_AUTHOR = 'Moshe Welcher'
