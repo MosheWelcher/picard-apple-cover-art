@@ -131,7 +131,7 @@ and reasoning for every lookup.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+GPL v2 — see [LICENSE](LICENSE).
 
 Not affiliated with Apple or with the MusicBrainz project. "Apple Music" and
 "iTunes" are trademarks of Apple Inc.
