@@ -1,0 +1,20 @@
+uuid = "7068e4dd-c75a-4d4f-b041-7ba757794a9f"
+name = "Apple Music cover art"
+description = "Fetch front cover art from the public iTunes Search API, no account or API key needed"
+api = ["3.0"]
+authors = ["Moshe Welcher"]
+maintainers = ["Moshe Welcher"]
+homepage = "https://github.com/MosheWelcher/picard-apple-cover-art"
+report_bugs_to = "https://github.com/MosheWelcher/picard-apple-cover-art/issues"
+license = "GPL-2.0-or-later"
+license_url = "https://www.gnu.org/licenses/gpl-2.0.html"
+categories = ["coverart"]
+
+long_description = """
+Fetches front cover art from the public iTunes Search API (itunes.apple.com), with images served from mzstatic.com.
+
+Needs no account and no API key. Useful as a fallback when the Cover Art Archive has no image for a release, or is unreachable.
+
+Because iTunes is searched by artist and album text rather than MusicBrainz ID, each candidate is scored on title, edition, artist and track count, and only confident matches are accepted. A wrong cover is never silently attached.
+
+Enable it under Options > Cover Art and place it after Cover Art Archive so it is only used when no front cover was found."""
