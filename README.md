@@ -29,34 +29,28 @@ recent and independent releases that have no art in the Cover Art Archive.
 
 ## Requirements
 
-- MusicBrainz Picard 2.x
+- MusicBrainz Picard **3.x** (plugin API 3.0)
 - Network access to `itunes.apple.com` and `is1-ssl.mzstatic.com`
 
-Developed and tested against **Picard 2.13.3** on Windows. The plugin declares
-support for API versions 2.0 through 2.13 and guards its Qt and config imports,
-so it should load on older 2.x releases and on PyQt6 builds, though those are
-untested.
+> **Using Picard 2.x?** The original single-file plugin lives on the
+> [`picard-v2` branch](https://github.com/MosheWelcher/picard-apple-cover-art/tree/picard-v2).
+> Download `applecoverart.py` from there and follow the install steps in that
+> branch's README.
 
 ## Installation
 
 ### Option A — from inside Picard (recommended)
 
-1. Download [`applecoverart.py`](applecoverart.py).
-2. In Picard: **Options → Options… → Plugins**.
-3. Click **Install plugin from file…** and pick the downloaded `.py`.
-4. Tick **Apple Music cover art** in the plugin list.
-5. Restart Picard.
+1. **Options → Options… → Plugins**.
+2. Choose **Install from URL** and enter
+   `https://github.com/MosheWelcher/picard-apple-cover-art`.
+3. Enable **Apple Music cover art** in the plugin list.
 
-### Option B — copy it into the plugins folder
+### Option B — command line
 
-Drop `applecoverart.py` into Picard's plugin directory, then restart Picard and
-enable it under **Options → Plugins**.
-
-| OS | Plugin folder |
-|---|---|
-| Windows | `%LOCALAPPDATA%\MusicBrainz\Picard\plugins` |
-| macOS | `~/Library/Preferences/MusicBrainz/Picard/plugins` |
-| Linux | `~/.config/MusicBrainz/Picard/plugins` |
+```
+picard-cli plugins install https://github.com/MosheWelcher/picard-apple-cover-art
+```
 
 ## Enabling it as a cover art source
 
@@ -65,8 +59,8 @@ put it in the right order.
 
 1. **Options → Options… → Cover Art**
 2. Tick **Apple Music** in the *Cover Art Providers* list.
-3. Move it **up** with the arrow buttons so it runs before the providers you
-   want it to take precedence over.
+3. Move it with the arrow buttons. Below **Cover Art Archive** makes it a
+   fallback; above makes it take precedence.
 
 If the Cover Art Archive is unreachable on your network, untick **Cover Art
 Archive** and **CAA Release Group** as well. They will otherwise be tried first,
@@ -77,15 +71,16 @@ Providers run in list order and the plugin stops as soon as another provider has
 already supplied a front cover, so it is safe to leave several enabled as
 fallbacks.
 
-## Settings
+## Tuning
 
-Under **Options → Cover Art → Apple Music**:
+There is no settings page. The defaults are constants at the top of
+[`__init__.py`](__init__.py):
 
-| Setting | Default | What it does |
+| Constant | Default | What it does |
 |---|---|---|
-| Image size | 1200 × 1200 | Apple serves any square size on demand. 600, 1200, 1400 and 3000 are offered. |
-| Store country code | `US` | Which country's store to search. Catalogues differ slightly by region. |
-| Match confidence | 90 | Minimum score a candidate must reach before its art is used. Higher is stricter. |
+| `IMAGE_SIZE` | `1200` | Square image size requested from Apple. 600, 1200, 1400 and 3000 all work. |
+| `STORE_COUNTRY` | `US` | Which country's store to search. Catalogues differ slightly by region. |
+| `MATCH_THRESHOLD` | `90` | Minimum score a candidate must reach before its art is used. Higher is stricter. |
 
 ## How matching works
 
@@ -131,7 +126,7 @@ and reasoning for every lookup.
 
 ## License
 
-GPL v2 — see [LICENSE](LICENSE).
+GPL-2.0-or-later — see [LICENSE](LICENSE).
 
 Not affiliated with Apple or with the MusicBrainz project. "Apple Music" and
 "iTunes" are trademarks of Apple Inc.
